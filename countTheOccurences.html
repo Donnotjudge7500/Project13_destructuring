@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validating-URL</title>
+
+    <!-- ++++++++++++++++++++++++++++++++++++ -->
+                          <!-- CSS -->
+    <!-- ++++++++++++++++++++++++++++++++++++ -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Mooli&display=swap');
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Mooli', sans-serif;
+        }
+
+        html,body
+        {
+            height: 100%;
+            width: 100%;
+            background-color: rgb(107, 210, 210);
+        }
+
+        .main
+        {
+            display: flex;
+            flex-direction: column;
+           justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+         }
+
+        .inputSection   
+        {
+            height: 50px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .inputSection input
+        {
+             padding: 5px 20px;
+            font-size: 3vw;
+            outline: none;
+            border: none;
+            border-radius: 10px;
+            background-color: beige;
+        }
+
+        .btn    
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 50px;
+            margin-top: 30px;
+         }
+
+        .btn button
+        {
+            padding: 5px 20px;
+            font-size: 2vw;
+            border: none;
+            border-radius: 10px;
+            transition: 0.4s;
+            background-color: #4545cc;
+            color: darkgray;
+        }
+
+        button:active
+        {
+            transform: scale(0.94);
+        }
+
+        .main p
+        {
+            width: 100vw;
+            height: 5vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 5vw;
+            font-size: 2.5vw;
+            color: #faebd7;
+            border: none;
+            border-radius: 50%;
+         }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <p></p>
+        <div class="inputSection">
+                    <input type="text" id="inputString">
+        </div>
+        <div class="btn">
+            <button>Seep the Words</button>
+        </div>
+    </div>
+</body>
+
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+              <!-- JAVA SCRIPT -->
+<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+<script>
+    // Catching the elements.
+    const string = document.querySelector("#inputString")
+    const button = document.querySelector("button")
+
+
+    button.addEventListener("click", () => {
+         
+        const wordsArray = (inputString.value).split(" ");
+        const wordMap = new Map();
+
+        wordsArray.forEach(element => {
+            if (wordMap.has(element)) {
+                wordMap.set(element, wordMap.get(element) + 1);
+            }else{
+                wordMap.set(element, 1);
+            }
+        });
+
+        // Counted Output displaying in the console.
+        console.log(wordMap);
+    })
+</script>
+</html>
